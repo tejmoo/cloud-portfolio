@@ -1,0 +1,35 @@
+name: Deploy Website to S3 + CloudFront
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials using OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::151006775852:role/github-actions-s3-deploy-github-actions-role
+          aws-region: us-west-2
+
+      - name: Sync website to S3
+        run: |
+          aws s3 sync ./ s3://teja-cloud-portfolio-2025 \
+            --exclude ".git/*" --exclude ".github/*" --delete
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id E3D50NFGM8W80D \
+            --paths "/*"
