@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A simple and fun cloud-themed website created by Teja to showcase HTML, CSS, and AWS skills." />
+  <title>Teja Muvva | Cloud Developer in Training</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&family=Marck+Script&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/favicon.png" type="image/favicon" />
+  <style>
+    body {
+      margin: 50px;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom, #b2cfff, #f5ccff);
+      transition: background 1s ease;
+      overflow-x: hidden;
+      color: white;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .title-wrapper {
+      text-align: center;
+      padding-top: 40px;
+    }
+
+    .title {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      color: white;
+      margin-bottom: 12px;
+    }
+
+  .title-icon {
+    z-index: 2;
+    position: relative; /* 🧠 Required for z-index to take effect */
+    width: 240px;
+    height: auto;
+    border-radius: 24px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15), transparent);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.3);
+    transition: all 0.4s ease;
+    opacity: 0.97;
+    display: block;
+    margin: 0 auto;
+  }
+
+    h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    text-align: center;
+    margin-top: 40px;
+    }
+
+    <!--.scroll-hint {
+      text-align: center;
+      font-size: 1.2rem;
+      margin: 10px 0;
+      position: relative;
+      z-index: 2;
+    }-->
+
+    .panel {
+      padding: 24px 16px;
+      display: block;
+      font-size: clamp(1.2rem, 5vw, 2rem);
+      text-align: center;
+      line-height: 1.6;
+      position: relative;
+      z-index: 2;
+    }
+  .speech-bubble {
+    font-size: clamp(1.1rem, 4vw, 1.25rem);
+    padding: 20px 24px;
+    margin: 24px auto;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* add soft lift */
+    color: white;
+    line-height: 1.6;
+    z-index: 2;
+  }
+
+  .speech-bubble strong {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: white;
+  }
+
+
+    .cloud {
+      position: absolute;
+      width: 100px;
+      opacity: 0.8;
+      z-index: 0;
+      animation-duration: 60s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
+    @keyframes floatLeft {
+      from { transform: translateX(-200px); }
+      to { transform: translateX(200vw); }
+    }
+
+    @keyframes floatRight {
+      from { transform: translateX(200vw); }
+      to { transform: translateX(-200px); }
+    }
+
+    .cloud-left { animation-name: floatLeft; }
+    .cloud-right { animation-name: floatRight; }
+
+    .track-title {
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .track-artist {
+      font-size: 12px;
+      opacity: 0.8;
+    }
+
+    .bubble {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(173,216,230,0.4), rgba(255,255,255,0));
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  animation: rise 1.5s ease-out forwards;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(2px);
+}
+
+@keyframes rise {
+  0% { opacity: 1; transform: scale(1) translateY(0); }
+  100% { opacity: 0; transform: scale(1.6) translateY(-30px); }
+}
+
+    .controls .btn {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      padding: 8px 10px;
+      border-radius: 50%;
+      font-size: 18px;
+      color: white;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+    }
+
+     .hamburger {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1001;
+      background: none;
+      border: none;
+      font-size: 45px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 200px;
+      height: 100%;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      transition: left 0.3s ease;
+      padding: 60px 20px;
+      box-shadow: 4px 0 12px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    .sidebar.open {
+      left: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      margin: 20px 0;
+      color: white;
+      font-size: 1.4rem;
+    }
+
+    @keyframes fadeInOut {
+      0% {
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      60% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .floating-geo {
+      animation: fadeInOut 12s ease-in-out forwards;
+    }
+    </style>
+
+
+  </style>
+
+</head>
+<body>
+  
+  <div class="sidebar" id="sidebar">
+    <a href="#about" style="box-shadow: 0 0 18px 6px rgba(120, 200, 255, 0.7); background: rgba(255,255,255,0.2); border-radius: 16px; padding: 12px 10px; display: flex; align-items: center; gap: 8px; color: white; text-decoration: none;">📘 About Me</a>
+
+    <a href="#projects" style="box-shadow: 0 0 18px 6px rgba(120, 200, 255, 0.7); background: rgba(255,255,255,0.2); border-radius: 16px; padding: 12px 10px; display: flex; align-items: center; gap: 8px; color: white; text-decoration: none;">🛠️ Projects</a>
+
+    <a href="#education" style="box-shadow: 0 0 18px 6px rgba(120, 200, 255, 0.7); background: rgba(255,255,255,0.2); border-radius: 16px; padding: 12px 10px; display: flex; align-items: center; gap: 8px; color: white; text-decoration: none;">🎓 Education & Certificates</a>
+
+    <a href="https://www.linkedin.com/in/tejamuvva" target="_blank" rel="noopener noreferrer" style="box-shadow: 0 0 18px 6px rgba(120, 200, 255, 0.7); background: rgba(255,255,255,0.2); border-radius: 16px; padding: 12px 10px; display: flex; align-items: center; gap: 8px; color: white; text-decoration: none;">🔗 LinkedIn</a>
+
+    <a href="mailto:teja.muvva@gmail.com" style="box-shadow: 0 0 18px 6px rgba(120, 200, 255, 0.7); background: rgba(255,255,255,0.2); border-radius: 16px; padding: 12px 10px; display: flex; align-items: center; gap: 8px; color: white; text-decoration: none;">💌 Let’s Connect</a>
+  </div>
+
+  <div class="title-wrapper">
+    <h1 class="title">Teja’s Cloud World</h1>
+    <img src="images/cloud-girl.png" alt="Teja icon" class="title-icon" />
+    <h2 style="text-align: center; margin-top: 16px; font-size: 1.5em; font-weight: normal;">
+  Teja Muvva | Cloud Developer in Training ☁️
+    </h2>
+  </div>
+
+  <!--<div class="scroll-hint">⬇ Keep scrolling to explore ⬇</div>-->
+
+<!-- Clouds -->
+<img src="images/fluffy_cloud.png" class="cloud cloud-left" style="top: 60px; left: -200px; animation-delay: 1s; width: 80px;" alt="Fluffy white cloud floating in the sky" />
+<img src="images/fluffy_cloud.png" class="cloud cloud-right" style="top: 380px; left: -200px; animation-delay: 3s; width: 140px;" alt="Fluffy white cloud floating in the sky" />
+<img src="images/fluffy_cloud.png" class="cloud cloud-left" style="top: 660px; left: -200px; animation-delay: 5s; width: 60px;" alt="Fluffy white cloud floating in the sky" />
+<img src="images/fluffy_cloud.png" class="cloud cloud-right" style="top: 940px; left: -200px; animation-delay: 7s; width: 120px;" alt="Fluffy white cloud floating in the sky" />
+<img src="images/fluffy_cloud.png" class="cloud cloud-left" style="top: 1220px; left: -200px; animation-delay: 2s; width: 100px;" alt="Fluffy white cloud floating in the sky" />
+
+<img src="images/fluffy_cloud.png" class="cloud cloud-right" style="top: 1500px; left: -200px; animation-delay: 9s; width: 70px;" alt="Fluffy white cloud floating in the sky" />
+<img src="images/fluffy_cloud.png" class="cloud cloud-left" style="top: 1780px; left: -200px; animation-delay: 4s; width: 130px;" alt="Fluffy white cloud floating in the sky" />
+<img src="images/fluffy_cloud.png" class="cloud cloud-right" style="top: 2060px; left: -200px; animation-delay: 11s; width: 90px;" alt="Fluffy white cloud floating in the sky" />
+<img src="images/fluffy_cloud.png" class="cloud cloud-left" style="top: 2340px; left: -200px; animation-delay: 6s; width: 110px;" alt="Fluffy white cloud floating in the sky" />
+<img src="images/fluffy_cloud.png" class="cloud cloud-right" style="top: 2620px; left: -200px; animation-delay: 13s; width: 75px;" alt="Fluffy white cloud floating in the sky" />
+
+<img src="images/fluffy_cloud.png" class="cloud cloud-left" style="top: 2900px; left: -200px; animation-delay: 8s; width: 65px;" alt="Fluffy white cloud floating in the sky" />
+<img src="images/fluffy_cloud.png" class="cloud cloud-right" style="top: 3180px; left: -200px; animation-delay: 15s; width: 125px;" alt="Fluffy white cloud floating in the sky" />
+<img src="images/fluffy_cloud.png" class="cloud cloud-left" style="top: 3460px; left: -200px; animation-delay: 10s; width: 95px;" alt="Fluffy white cloud floating in the sky" />
+<img src="images/fluffy_cloud.png" class="cloud cloud-right" style="top: 3740px; left: -200px; animation-delay: 17s; width: 115px;" alt="Fluffy white cloud floating in the sky" />
+<img src="images/fluffy_cloud.png" class="cloud cloud-left" style="top: 4020px; left: -200px; animation-delay: 12s; width: 85px;" alt="Fluffy white cloud floating in the sky" />
+
+
+
+
+<!--    <p style="text-shadow: 0 1px 3px rgba(0,0,0,0.2); font-size: 2.4rem; text-align: center;">
+      ✨ Welcome to my portfolio in the sky ✨
+    </p>-->
+
+  <div class="panel" id="about">
+    <h2>📖 About Me</h2>
+    <div class="speech-bubble">
+      Hi, I’m Teja — I spent six years in QA breaking things on purpose. Now, I build things with purpose in the cloud.<br><br>
+      After years of hunting bugs, I’m diving deep into AWS, learning how to architect, automate, and scale reliable systems. I approach cloud engineering with a strong foundation in quality, a love for clean builds, and an eye for efficiency. Whether it’s spinning up resources, managing deployments, or troubleshooting tricky configs, I like getting my hands cloudy.
+    </div>
+    <div class="speech-bubble">
+      💌 Reach me at <a href="mailto:teja.muvva@gmail.com">teja.muvva@gmail.com</a> if you want to connect!
+    </div>
+  </div>
+
+  <div class="panel" id="projects">
+    <h2>🛠️ Projects</h2>
+    <div class="speech-bubble" style="text-align: left; padding-left: 24px; padding-right: 24px;">
+    <strong>🌤️ Teja’s Cloud World (this website)</strong>
+    <p>
+      A cloud-themed interactive portfolio website — styled, deployed, and maintained with the help of AI tools.
+    </p>
+    <ul style="padding-left: 1.2em; margin: 0 0 12px 0;">
+      <li>Fully hosted on AWS S3 with HTTPS enabled via CloudFront and a custom domain from Porkbun</li>
+      <li>Integrated a live visitor counter using Lambda, API Gateway, and CloudWatch</li>
+      <li>Displays dynamic geo-based greetings using IP geolocation APIs and JavaScript</li>
+      <li>Designed for full mobile responsiveness and accessibility compliance</li>
+      <li>Features floating clouds, time-based backgrounds, and a responsive hamburger menu</li>
+    </ul>
+    <p style="margin-top: 8px; font-style: italic;">
+      Built with: HTML, CSS, JavaScript, AWS S3, CloudFront, Lambda, API Gateway, ACM, CloudWatch
+    </p>
+  </div>
+
+    <div class="speech-bubble" style="text-align: left; padding-left: 24px; padding-right: 24px;">
+    <strong>📦 PackPerfect.ai <em style="font-weight: 400; font-size: 0.95em;">(Coming Soon)</em></strong>
+    <p>A travel-focused web app that generates personalized packing lists using AI and serverless architecture.</p>
+    <p style="font-style: italic; font-size: 0.95em; margin-bottom: 12px;">
+    Perfect for travelers who want to pack smarter, lighter, and never forget the essentials — whether it’s a weekend getaway or a month-long adventure.
+    </p>
+    <ul style="padding-left: 1.2em; margin: 0 0 12px 0;">
+      <li>Will integrate Amazon Bedrock with AWS Lambda to generate checklist recommendations</li>
+      <li>Designed to track traveler trends and packing preferences across regions</li>
+      <li>Built to showcase cloud-native development and serverless best practices</li>
+    </ul>
+    <p style="margin-top: 8px; font-style: italic;">
+      Planned stack: Python, AWS Lambda, Bedrock, API Gateway, S3, CloudWatch
+    </p>
+  </div>
+
+
+  <div class="speech-bubble" style="text-align: left; padding-left: 24px; padding-right: 24px;">
+    <strong>🏞️ TheScenicRoute <em style="font-weight: 400; font-size: 0.95em;">(Coming Soon)</em></strong>
+    <p>An AI-powered road trip planner that builds scenic, personalized driving routes -- because the best road trips are about the journey, not just the destination.</p>
+    <p style="font-style: italic; font-size: 0.95em; margin-bottom: 12px;">
+    Great for roadtrippers, digital nomads, and weekend explorers who want memorable drives with character — not just the fastest route.
+    </p>
+    <ul style="padding-left: 1.2em; margin: 0 0 12px 0;">
+      <li>Suggests curated routes with must-see stops, local food highlights, and storytelling elements</li>
+      <li>Integrates Amazon Bedrock with Google Maps to provide real-time directions and tailored recommendations</li>
+      <li>Built with a fully serverless, cloud-native architecture</li>
+    </ul>
+    <p style="margin-top: 8px; font-style: italic;">
+      Planned stack: Python, AWS Lambda, Bedrock, API Gateway, S3, CloudWatch, Google Maps API
+    </p>
+  </div>
+
+    <div class="speech-bubble" style="text-align: left; padding-left: 24px; padding-right: 24px;">
+    <strong>🪞 MirrorMe <em style="font-weight: 400; font-size: 0.95em;">(Coming Soon)</em></strong>
+    <p>Write faster with responses that reflect your natural communication style.</p>
+    <p style="font-style: italic; font-size: 0.95em; margin-bottom: 12px;">
+    Perfect for professionals, support teams, and creatives who want replies that reflect their personal tone — whether they’re writing emails, responding to DMs, or scaling outreach.
+    </p>
+    <ul style="padding-left: 1.2em; margin: 0 0 12px 0;">
+      <li>Uses Amazon Bedrock to generate personalized replies based on sample user input</li>
+      <li>Built with serverless architecture using AWS Lambda and API Gateway to keep costs low</li>
+      <li>Stores sample tone profiles and reply history in S3</li>
+      <li>Tracks usage and errors with CloudWatch for easy monitoring</li>
+    </ul>
+    <p style="margin-top: 8px; font-style: italic;">
+      Built with: AWS Lambda, Bedrock, API Gateway, S3, CloudWatch
+    </p>
+  </div>
+</div>
+
+<div class="panel" id="education">
+  <h2>🎓 Education & Certificates</h2>
+
+  <div class="speech-bubble" style="text-align: left; padding-left: 24px; padding-right: 24px;">
+    <strong>AWS Cloud Institute</strong>
+    <ul style="padding-left: 1.2em; margin: 8px 0 16px 0;">
+      <li>AWS Certified Cloud Practitioner — <em>In progress</em></li>
+      <li>AWS Certified Developer Associate — <em>In progress</em></li>
+      <li>AWS Certified Solutions Architect Associate — <em>In progress</em></li>
+      <li>AWS Certified AI Practitioner — <em>In progress</em></li>
+    </ul>
+
+    <strong>Pennsylvania State University</strong>
+    <p style="margin-top: 6px;">
+      Bachelor of Science in Biology — <em>2013–2017</em>
+    </p>
+  </div>
+</div>
+
+  <div style="height: 160px;"></div>
+
+  <div class="bottom-space"></div>
+
+    <div style="text-align: left; margin-left: 20px;">
+    <p style="font-size: 1.2rem; font-weight: 500; margin-bottom: 8px;">
+      👀 Visitors so far: <span id="counter">Loading...</span>
+    </p>
+    <img 
+      src="images/builtwithaws.png" 
+      alt="Built with AWS badge" 
+      style="width: 140px; height: auto; margin: 0px;" />
+  </div>
+
+<script>
+  fetch("https://ntovnb8k15.execute-api.us-west-1.amazonaws.com/default/logVisit")
+    .then(res => {
+      if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+      return res.json();
+    })
+    .then(data => {
+      console.log("Visit logged");
+      document.getElementById("counter").textContent = data.count;
+    })
+    .catch(err => {
+      console.error("Failed to fetch visitor count:", err);
+      document.getElementById("counter").textContent = "Error loading count";
+    });
+</script>
+
+<script src="script.js"></script>
+
+<script>
+  // Toggle sidebar open/close
+  function toggleSidebar() {
+    const sidebar = document.getElementById("sidebar");
+    const isOpen = sidebar.classList.toggle("open");
+    console.log(`Sidebar is now ${isOpen ? 'OPEN' : 'CLOSED'}`);
+  }
+
+  // Wait for the DOM to load, then add extra behavior
+  document.addEventListener('DOMContentLoaded', () => {
+    const sidebar = document.getElementById("sidebar");
+    const hamburger = document.querySelector(".hamburger");
+
+    // ✅ Close sidebar when clicking outside of it
+    document.addEventListener('click', function(event) {
+      if (!sidebar.classList.contains('open')) return;
+      if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+        sidebar.classList.remove('open');
+        console.log('Sidebar closed by clicking outside');
+      }
+    });
+
+    // ✅ Close sidebar when clicking a link inside it
+    document.querySelectorAll('.sidebar a').forEach(link => {
+      link.addEventListener('click', () => {
+        sidebar.classList.remove('open');
+        console.log('Sidebar closed by link click');
+      });
+    });
+  });
+</script>
+
+<button class="hamburger" onclick="toggleSidebar()">☰</button>
+
+</body>
+</html>
+
+
