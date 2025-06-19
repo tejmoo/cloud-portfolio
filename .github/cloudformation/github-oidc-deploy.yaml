@@ -1,0 +1,70 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: GitHub OIDC + S3 + CloudFront deploy role
+
+Parameters:
+  GithubRepoName:
+    Type: String
+    Default: 'tejmoo/cloud-portfolio'
+    Description: GitHub repo (e.g., tejmoo/cloud-portfolio)
+
+  WebsiteBucketName:
+    Type: String
+    Default: 'teja-cloud-portfolio-2025'
+    Description: Existing S3 bucket name
+
+  CloudFrontDistributionId:
+    Type: String
+    Default: 'E3D50NFGM8W80D'
+    Description: Existing CloudFront Distribution ID
+
+  ThumbprintList:
+    Type: String
+    Default: '6938fd4d98bab03faadb97b34396831e3780aea1'
+
+Resources:
+  GitHubOIDCProvider:
+    Type: AWS::IAM::OIDCProvider
+    Properties:
+      Url: https://token.actions.githubusercontent.com
+      ClientIdList:
+        - sts.amazonaws.com
+      ThumbprintList:
+        - !Ref ThumbprintList
+
+  GitHubActionsRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub '${AWS::StackName}-github-actions-role'
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: !Ref GitHubOIDCProvider
+            Action: sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringLike:
+                token.actions.githubusercontent.com:sub: !Sub 'repo:${GithubRepoName}:*'
+      Policies:
+        - PolicyName: S3AndCloudFrontAccess
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:PutObject
+                  - s3:GetObject
+                  - s3:ListBucket
+                  - s3:DeleteObject
+                Resource:
+                  - !Sub 'arn:aws:s3:::${WebsiteBucketName}'
+                  - !Sub 'arn:aws:s3:::${WebsiteBucketName}/*'
+              - Effect: Allow
+                Action:
+                  - cloudfront:CreateInvalidation
+                Resource: !Sub 'arn:aws:cloudfront::151006775852:distribution/${CloudFrontDistributionId}'
+
+Outputs:
+  GitHubActionsRoleARN:
+    Description: Role ARN to use in GitHub Actions
+    Value: !GetAtt GitHubActionsRole.Arn
