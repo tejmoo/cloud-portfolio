@@ -56,7 +56,7 @@ A fully static, mobile-friendly portfolio website hosted on **AWS S3**, fronted 
 
 ## 🧠 Want to Build Something Similar?
 
-Check out the [CloudFormation template](.github/cloudformation.yaml) and [GitHub Actions workflow](.github/workflows/deploy.yml) to learn how this serverless CI/CD pipeline works.
+Check out the [CloudFormation Template for GitHub Actions OIDC Deploy](.github/cloudformation/github-oidc-deploy.yaml) and [GitHub Actions workflow](.github/workflows/deploy.yml) to learn how this serverless CI/CD pipeline works.
 
 ---
 
@@ -64,11 +64,11 @@ Check out the [CloudFormation template](.github/cloudformation.yaml) and [GitHub
 
 ### 🌤️ Homepage
 
-![Homepage Screenshot](homepage.png)
+![Homepage Screenshot](README_images/homepage.png)
 
 ### 💡 Mobile View
 
-![Mobile Screenshot](mobile.png)
+![Mobile Screenshot](README_images/mobile.png)
 
 ---
 

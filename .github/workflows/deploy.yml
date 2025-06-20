@@ -4,6 +4,14 @@ on:
   push:
     branches:
       - main
+    paths:
+      - '**.html'
+      - '**.css'
+      - '**.js'
+      - 'images/**'
+      - '!images/readme/**'
+      - '!README.md'
+      - '!**/.github/**'
 
 permissions:
   id-token: write
