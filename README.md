@@ -60,7 +60,7 @@ Check out the [CloudFormation Template for GitHub Actions OIDC Deploy](.github/c
 
 ---
 
-## 📸 Screenshots (optional)
+## 📸 Screenshots
 
 ### 🌤️ Homepage
 
