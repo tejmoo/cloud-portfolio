@@ -26,13 +26,15 @@ A fully static, mobile-friendly portfolio website hosted on **AWS S3**, fronted 
 
 ```
 .
-├── index.html
-├── style.css
-├── images/
-├── .github/
-│   └── workflows/
-│       └── deploy.yml
-└── README.md
+├── index.html             # Main webpage
+├── style.css              # Stylesheet
+├── script.js              # JavaScript for interactivity
+├── images/                # Folder for all visual assets
+├── README_images/         # Auto-generated preview assets 
+├── README.md              # Project documentation
+└── .github/
+    └── workflows/
+        └── deploy.yml     # GitHub Actions workflow for S3 CloudFront deployment
 ```
 
 ---
