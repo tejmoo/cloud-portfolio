@@ -6,11 +6,15 @@ A fully static, mobile-friendly portfolio website hosted on **AWS S3**, fronted 
 
 ## 🚀 Features
 
-- 🎨 Responsive, accessible, and aesthetic HTML/CSS/JS design
-- ☁️ Hosted on Amazon S3 with HTTPS enabled via CloudFront
-- 🔄 Auto-deploys on every `main` branch push using GitHub Actions
-- 🔐 Secure authentication via GitHub OIDC (no stored credentials)
-- 🔁 CloudFront cache invalidation with every deploy
+- 🌐 Fully responsive and accessible static website built with HTML, CSS, and JavaScript
+- ☁️ Animated, randomized cloud elements and dynamic time-based background gradients
+- 📍 Displays geo-aware greetings using IP geolocation APIs
+- 🔢 Real-time visitor tracking powered by AWS Lambda, API Gateway, and CloudWatch
+- 💾 Hosted on Amazon S3 with HTTPS enabled via CloudFront and ACM
+- 🔄 Auto-deploys on every push to the main branch using GitHub Actions
+- ❄️ Automatically triggers CloudFront cache invalidation only when website files are updated
+- 🔐 Uses GitHub OIDC for secure, credentials-free authentication during deployment
+- 🍔 Includes a mobile-optimized hamburger menu with links to projects, GitHub, and LinkedIn
 
 ---
 
@@ -22,7 +26,13 @@ A fully static, mobile-friendly portfolio website hosted on **AWS S3**, fronted 
 
 ---
 
-## 📦 Project Structure
+### 🧱 Architecture Diagram
+
+![Architecture](README_images/architecture.png)
+
+---
+
+## 📁 Project Structure
 
 ```
 .

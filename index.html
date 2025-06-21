@@ -47,6 +47,7 @@
     opacity: 0.97;
     display: block;
     margin: 0 auto;
+    margin-bottom: 4px;
   }
 
     h2 {
@@ -213,31 +214,269 @@
     .floating-geo {
       animation: fadeInOut 12s ease-in-out forwards;
     }
-    </style>
 
+    .tech-stack {
+          margin-top: 10px;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+
+   .tech-tag {
+      background: linear-gradient(135deg, rgba(77, 32, 150, 0.65), rgba(111, 69, 164, 0.55)); /* obsidian base with richer violet */
+      color: rgba(255, 255, 255, 0.9);
+      padding: 4px 12px;
+      border-radius: 12px;
+      margin-top: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      white-space: nowrap;
+      display: inline-block;
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      box-shadow: inset 0 0 6px rgba(115, 62, 183, 0.55);
+      user-select: none;
+      cursor: default;
+    }
+
+    .tech-stack-footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+      justify-content: flex-start;
+    }
+
+    #footer {
+      width: 100vw;
+      padding: 30px 20px;
+      background: transparent;
+      box-shadow: none;
+      color: white;
+    }
+
+    #footer .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px; /* matches speech bubble horizontal padding */
+      display: flex;
+      justify-content: space-between; /* visitor count left, icons right */
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    #footer .visitor-info {
+      flex: 1 1 300px;
+      text-align: left;
+      min-width: 200px;
+      margin-right: 20px;
+    }
+
+    #footer .connect-icons {
+      max-width: 800px;         /* match speech bubble width */
+      margin: 0 auto;           /* center horizontally */
+      padding: 0 24px;          /* match speech bubble padding */
+      display: flex !important; /* override any conflicting display */
+      justify-content: center !important;
+      gap: 48px !important;
+      box-sizing: border-box;   /* ensure padding doesn't break width */
+    }
+
+    #footer .connect-icons img {
+      width: 80px;
+      height: 80px;
+      filter: drop-shadow(0 0 6px rgba(120, 200, 255, 0.3));
+      transition: transform 0.2s ease-in-out;
+    }
+
+    #footer .footer-text {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.75);
+      margin-top: 24px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 600px) {
+      #footer .footer-content {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+
+      #footer .visitor-info, #footer .connect-icons {
+        flex: unset;
+        min-width: auto;
+        margin: 0;
+      }
+
+    
+      #footer .visitor-info {
+        text-align: center !important;
+        margin: 0 !important;
+      }
+    
+
+      #footer .connect-icons {
+        justify-content: center;
+      }
+
+      #footer .connect-icons img {
+        width: 40px;
+        height: 40px;
+      }
+
+      #footer .footer-text {
+        font-size: 0.90rem;
+      }
+    }
+
+
+
+
+
+    .section {
+      margin: 80px auto;
+      max-width: 800px;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 24px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 6px;
+      margin-top: 4px
+      color: white;
+      position: relative;
+      text-align: center;
+    }
+
+    /* Replaces section-title::after with this standalone divider */
+    .section-divider {
+      margin: 6px auto 0;
+      width: 60px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(to right, #8a63b1, #c2a4dd, #72b7ff);
+      box-shadow: 0 0 10px rgba(200, 160, 255, 0.4);
+    }
+
+    .connect-icons {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 24px;
+    }
+
+    .connect-icons img {
+      width: 40px;
+      height: 40px;
+      filter: drop-shadow(0 0 6px rgba(120, 200, 255, 0.3));
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .connect-icons a {
+      display: flex;
+      flex-direction: column;   /* stacks icon on top, label below */
+      align-items: center;      /* centers both horizontally */
+      color: white;
+      font-size: 1rem;
+      margin-top: 4px;
+      text-decoration: none;
+    }
+
+    .connect-icons a:hover img {
+      transform: scale(1.1);
+    }
+
+   .icon-label {
+      margin-top: 6px;         /* space between icon and label */
+      font-weight: 500;
+      opacity: 0.8;
+      user-select: none;
+    }
 
   </style>
-
 </head>
 <body>
   
   <div class="sidebar" id="sidebar">
-    <a href="#about" style="box-shadow: 0 0 18px 6px rgba(120, 200, 255, 0.7); background: rgba(255,255,255,0.2); border-radius: 16px; padding: 12px 10px; display: flex; align-items: center; gap: 8px; color: white; text-decoration: none;">📘 About Me</a>
+    <a href="#about" 
+      style="box-shadow: 0 0 18px 6px rgba(120, 200, 255, 0.7); 
+              background: rgba(255,255,255,0.2); 
+              border-radius: 16px; 
+              padding: 12px 10px; 
+              display: flex; 
+              align-items: center; 
+              gap: 8px; 
+              color: white; 
+              text-decoration: none;">
+      <img src="images/about_icon.png" 
+          alt="About Icon" 
+          style="width: 30px; height: 30px; object-fit: contain; display: block;" />
+      About Me
+    </a>
+    <a href="#projects" 
+      style="box-shadow: 0 0 18px 6px rgba(120, 200, 255, 0.7); 
+              background: rgba(255,255,255,0.2); 
+              border-radius: 16px; 
+              padding: 12px 10px; 
+              display: flex; 
+              align-items: center; 
+              gap: 8px; 
+              color: white; 
+              text-decoration: none;">
+      <img src="images/projects_icon.png" 
+          alt="Projects Icon" 
+          style="width: 30px; height: 30px; object-fit: contain; display: block;" />
+      Projects
+    </a>
+    <a href="#education" 
+      style="box-shadow: 0 0 18px 6px rgba(120, 200, 255, 0.7); 
+              background: rgba(255,255,255,0.2); 
+              border-radius: 16px; 
+              padding: 12px 10px; 
+              display: flex; 
+              align-items: center; 
+              gap: 8px; 
+              color: white; 
+              text-decoration: none;">
+      <img src="images/cert_icon.png" 
+          alt="Certificates Icon" 
+          style="width: 30px; height: 30px; object-fit: contain; display: block;" />
+      Education 
+    </a>
+    <a href="#footer" 
+      style="box-shadow: 0 0 18px 6px rgba(120, 200, 255, 0.7); 
+              background: rgba(255,255,255,0.2); 
+              border-radius: 16px; 
+              padding: 12px 10px; 
+              display: flex; 
+              align-items: center; 
+              gap: 4px; 
+              color: white; 
+              text-decoration: none;
+              white-space: nowrap;">
+      <img src="images/letter_icon.png" 
+          alt="Letter Icon" 
+          style="width: 30px; height: 30px; object-fit: contain; display: block;" />
+      Let's Connect! 
+    </a>
 
-    <a href="#projects" style="box-shadow: 0 0 18px 6px rgba(120, 200, 255, 0.7); background: rgba(255,255,255,0.2); border-radius: 16px; padding: 12px 10px; display: flex; align-items: center; gap: 8px; color: white; text-decoration: none;">🛠️ Projects</a>
-
-    <a href="#education" style="box-shadow: 0 0 18px 6px rgba(120, 200, 255, 0.7); background: rgba(255,255,255,0.2); border-radius: 16px; padding: 12px 10px; display: flex; align-items: center; gap: 8px; color: white; text-decoration: none;">🎓 Education & Certificates</a>
-
-    <a href="https://www.linkedin.com/in/tejamuvva" target="_blank" rel="noopener noreferrer" style="box-shadow: 0 0 18px 6px rgba(120, 200, 255, 0.7); background: rgba(255,255,255,0.2); border-radius: 16px; padding: 12px 10px; display: flex; align-items: center; gap: 8px; color: white; text-decoration: none;">🔗 LinkedIn</a>
-
-    <a href="mailto:teja.muvva@gmail.com" style="box-shadow: 0 0 18px 6px rgba(120, 200, 255, 0.7); background: rgba(255,255,255,0.2); border-radius: 16px; padding: 12px 10px; display: flex; align-items: center; gap: 8px; color: white; text-decoration: none;">💌 Let’s Connect</a>
   </div>
 
   <div class="title-wrapper">
     <h1 class="title">Teja’s Cloud World</h1>
     <img src="images/cloud-girl.png" alt="Teja icon" class="title-icon" />
-    <h2 style="text-align: center; margin-top: 16px; font-size: 1.5em; font-weight: normal;">
-  Teja Muvva | Cloud Developer in Training ☁️
+    <h2 style="text-align: center; margin-top: 16px; font-size: 1.5em; font-weight: normal; margin-bottom: 4px;">
+  Teja Muvva | Cloud Developer in Training 
     </h2>
   </div>
 
@@ -270,37 +509,74 @@
     </p>-->
 
   <div class="panel" id="about">
-    <h2>📖 About Me</h2>
+    <h2 class="section-title">
+      About Me
+      <div class="section-divider"></div>
+    </h2>
     <div class="speech-bubble">
       Hi, I’m Teja — I spent six years in QA breaking things on purpose. Now, I build things with purpose in the cloud.<br><br>
-      After years of hunting bugs, I’m diving deep into AWS, learning how to architect, automate, and scale reliable systems. I approach cloud engineering with a strong foundation in quality, a love for clean builds, and an eye for efficiency. Whether it’s spinning up resources, managing deployments, or troubleshooting tricky configs, I like getting my hands cloudy.
-    </div>
-    <div class="speech-bubble">
-      💌 Reach me at <a href="mailto:teja.muvva@gmail.com">teja.muvva@gmail.com</a> if you want to connect!
+      After years of finding and logging bugs, I'm jumping into the world of AWS, learning how to architect, automate, and scale reliable systems. I bring my QA mindset to cloud engineering — clean & efficient. Now, I’m all about spinning up resources, managing deployments, and figuring out those tricky configs. I'm just getting my hands cloudy.
     </div>
   </div>
 
   <div class="panel" id="projects">
-    <h2>🛠️ Projects</h2>
+    <h2 class="section-title">
+      Projects
+      <div class="section-divider"></div>
+    </h2>
     <div class="speech-bubble" style="text-align: left; padding-left: 24px; padding-right: 24px;">
-    <strong>🌤️ Teja’s Cloud World (this website)</strong>
+    <strong>Teja’s Cloud World (this website)</strong>
     <p>
       A cloud-themed interactive portfolio website — styled, deployed, and maintained with the help of AI tools.
     </p>
-    <ul style="padding-left: 1.2em; margin: 0 0 12px 0;">
-      <li>Fully hosted on AWS S3 with HTTPS enabled via CloudFront and a custom domain from Porkbun</li>
-      <li>Integrated a live visitor counter using Lambda, API Gateway, and CloudWatch</li>
-      <li>Displays dynamic geo-based greetings using IP geolocation APIs and JavaScript</li>
-      <li>Designed for full mobile responsiveness and accessibility compliance</li>
-      <li>Features floating clouds, time-based backgrounds, and a responsive hamburger menu</li>
+    <ul style="padding-left: 1.2em; margin: 0 0 6px 0;">
+      <li>Hosted on S3 with CloudFront (HTTPS via ACM) and a custom Porkbun domain</li>
+      <li>Live visitor counter built with API Gateway, Lambda & DynamoDB</li>
+      <li>Geo-based greetings using IP detection and JavaScript</li>
+      <li>Fully mobile-responsive and accessibility-ready</li>
+      <li>Floating clouds, time-based backgrounds & responsive menu</li>
     </ul>
-    <p style="margin-top: 8px; font-style: italic;">
-      Built with: HTML, CSS, JavaScript, AWS S3, CloudFront, Lambda, API Gateway, ACM, CloudWatch
-    </p>
+
+    <a href="https://github.com/tejmoo/cloud-portfolio#readme" 
+      target="_blank" 
+      class="view-project-btn"
+      style=" 
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 6px;
+      padding: 12px 24px;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; "
+      onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.3)'"
+      onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 16px rgba(0, 0, 0, 0.2)'"
+      >
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
+        <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.8-1.6-3.8-1.6-.5-1.2-1.3-1.5-1.3-1.5-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7.1 2.1-.2.1-.7.4-1.2.7-1.5-2.5-.3-5.2-1.2-5.2-5.3 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.3.1-2.8 0 0 .9-.3 2.9 1.1.9-.2 1.8-.3 2.7-.3s1.8.1 2.7.3c2-.1 2.9-1.1 2.9-1.1.6 1.5.2 2.5.1 2.8.7.8 1.1 1.8 1.1 3 0 4.1-2.7 5-5.2 5.3.4.4.7 1.1.7 2.1v3.2c0 .3.2.7.8.6C20.2 21.4 23.5 17.1 23.5 12 23.5 5.65 18.35.5 12 .5z"/>
+      </svg>
+      View Project on GitHub
+    </a>
+
+    <div class="tech-stack-footer">
+      <span class="tech-tag">HTML</span>
+      <span class="tech-tag">CSS</span>
+      <span class="tech-tag">JavaScript</span>
+      <span class="tech-tag">S3</span>
+      <span class="tech-tag">CloudFront</span>
+      <span class="tech-tag">Lambda</span>
+      <span class="tech-tag">API Gateway</span>
+      <span class="tech-tag">ACM</span>
+      <span class="tech-tag">CloudWatch</span>
+    </div>
   </div>
 
     <div class="speech-bubble" style="text-align: left; padding-left: 24px; padding-right: 24px;">
-    <strong>📦 PackPerfect.ai <em style="font-weight: 400; font-size: 0.95em;">(Coming Soon)</em></strong>
+    <strong>PackPerfect.ai <em style="font-weight: 400; font-size: 0.95em;">(Coming Soon)</em></strong>
     <p>A travel-focused web app that generates personalized packing lists using AI and serverless architecture.</p>
     <p style="font-style: italic; font-size: 0.95em; margin-bottom: 12px;">
     Perfect for travelers who want to pack smarter, lighter, and never forget the essentials — whether it’s a weekend getaway or a month-long adventure.
@@ -317,8 +593,8 @@
 
 
   <div class="speech-bubble" style="text-align: left; padding-left: 24px; padding-right: 24px;">
-    <strong>🏞️ TheScenicRoute <em style="font-weight: 400; font-size: 0.95em;">(Coming Soon)</em></strong>
-    <p>An AI-powered road trip planner that builds scenic, personalized driving routes -- because the best road trips are about the journey, not just the destination.</p>
+    <strong>TheScenicRoute <em style="font-weight: 400; font-size: 0.95em;">(Coming Soon)</em></strong>
+    <p>An AI-powered road trip planner that builds scenic, personalized driving routes — because the best road trips are about the journey, not just the destination.</p>
     <p style="font-style: italic; font-size: 0.95em; margin-bottom: 12px;">
     Great for roadtrippers, digital nomads, and weekend explorers who want memorable drives with character — not just the fastest route.
     </p>
@@ -333,7 +609,7 @@
   </div>
 
     <div class="speech-bubble" style="text-align: left; padding-left: 24px; padding-right: 24px;">
-    <strong>🪞 MirrorMe <em style="font-weight: 400; font-size: 0.95em;">(Coming Soon)</em></strong>
+    <strong>MirrorMe <em style="font-weight: 400; font-size: 0.95em;">(Coming Soon)</em></strong>
     <p>Write faster with responses that reflect your natural communication style.</p>
     <p style="font-style: italic; font-size: 0.95em; margin-bottom: 12px;">
     Perfect for professionals, support teams, and creatives who want replies that reflect their personal tone — whether they’re writing emails, responding to DMs, or scaling outreach.
@@ -351,7 +627,10 @@
 </div>
 
 <div class="panel" id="education">
-  <h2>🎓 Education & Certificates</h2>
+  <h2 class="section-title">
+      Education & Certifications
+      <div class="section-divider"></div>
+    </h2>
 
   <div class="speech-bubble" style="text-align: left; padding-left: 24px; padding-right: 24px;">
     <strong>AWS Cloud Institute</strong>
@@ -370,18 +649,6 @@
 </div>
 
   <div style="height: 160px;"></div>
-
-  <div class="bottom-space"></div>
-
-    <div style="text-align: left; margin-left: 20px;">
-    <p style="font-size: 1.2rem; font-weight: 500; margin-bottom: 8px;">
-      👀 Visitors so far: <span id="counter">Loading...</span>
-    </p>
-    <img 
-      src="images/builtwithaws.png" 
-      alt="Built with AWS badge" 
-      style="width: 140px; height: auto; margin: 0px;" />
-  </div>
 
 <script>
   fetch("https://ntovnb8k15.execute-api.us-west-1.amazonaws.com/default/logVisit")
@@ -434,6 +701,38 @@
 </script>
 
 <button class="hamburger" onclick="toggleSidebar()">☰</button>
+
+<div class="visitor-info">
+      <p style="font-size: 1.2rem; font-weight: 500; margin-bottom: 8px;">
+        👀 Visitors so far: <span id="counter">Loading...</span>
+      </p>
+      <img
+        src="images/builtwithaws.png"
+        alt="Built with AWS badge"
+        style="width: 140px; height: auto; margin: 0;"
+      />
+    </div>
+
+<footer id="footer">
+  <div class="footer-content">
+    <div class="connect-icons">
+      <a href="mailto:teja.muvva@gmail.com" aria-label="Email" target="_blank">
+        <img src="images/letter_icon.png" alt="Email Icon" />
+        <span class="icon-label">Email</span>
+      </a>
+      <a href="https://github.com/tejmoo" aria-label="GitHub" target="_blank">
+        <img src="images/github.png" alt="GitHub Icon" />
+        <span class="icon-label">GitHub</span>
+      </a>
+      <a href="https://linkedin.com/in/tejamuvva" aria-label="LinkedIn" target="_blank">
+        <img src="images/linkedin.png" alt="LinkedIn Icon" />
+        <span class="icon-label">LinkedIn</span>
+      </a>
+    </div>
+  </div>
+
+  <p class="footer-text">© 2025 Teja Muvva. All clouds, no fluff.</p>
+</footer>
 
 </body>
 </html>
