@@ -15,6 +15,7 @@ A fully static, mobile-friendly portfolio website hosted on **AWS S3**, fronted 
 - Automatically triggers CloudFront cache invalidation only when website files change
 - Uses GitHub OIDC for secure, credentials-free authentication during deployment
 - Mobile-friendly layout with a responsive sidebar menu
+- Included a favicon and SEO metadata to enhance site visibility and browser recognition
 
 ---
 
@@ -53,9 +54,9 @@ A fully static, mobile-friendly portfolio website hosted on **AWS S3**, fronted 
 
 1. Push code to `main`
 2. GitHub Actions:
-   - Assumes an IAM role via OIDC
-   - Syncs the site to your S3 bucket
-   - Invalidates CloudFront cache
+   - Assumes an IAM role using OpenID Connect (OIDC)
+   - Syncs the updated site files to your S3 bucket
+   - Invalidates CloudFront cache to reflect changes
 3. Changes go live automatically!
 
 ---
@@ -68,11 +69,11 @@ A fully static, mobile-friendly portfolio website hosted on **AWS S3**, fronted 
 
 ## Want to Build Something Similar?
 
-Check out the [CloudFormation Template for GitHub Actions OIDC Deploy](.github/cloudformation/github-oidc-deploy.yaml) and [GitHub Actions workflow](.github/workflows/deploy.yml) to learn how this serverless CI/CD pipeline works.
+Check out the [CloudFormation template](.github/cloudformation/github-oidc-deploy.yaml) and [GitHub Actions workflow](.github/workflows/deploy.yml) to learn how this serverless CI/CD pipeline works.
 
 ---
 
-## creenshots
+## Screenshots
 
 ### Homepage
 
