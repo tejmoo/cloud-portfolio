@@ -101,14 +101,18 @@ window.addEventListener('DOMContentLoaded', () => {
         right: 20px;
         z-index: 999;
       `;
-      document.body.appendChild(geoBox);
 
-      setTimeout(() => geoBox.remove(), 12000);
+       // ⏱️ Only add it once after 3 seconds
+        setTimeout(() => {
+          document.body.appendChild(geoBox);
 
-    })
-    .catch(err => {
-      console.log("Geo fetch failed", err);
-    });
+      // ⏳ Remove after 12 seconds
+        setTimeout(() => geoBox.remove(), 12000);
+          }, 3000);
+        })
+        .catch(err => {
+          console.log("Geo fetch failed", err);
+        });
 
 
 });
