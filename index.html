@@ -320,32 +320,44 @@
 
     /* Mobile responsiveness */
     @media (max-width: 600px) {
+      #footer {
+        padding-left: 0px;
+        padding-right: 12px;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
       #footer .footer-content {
         flex-direction: column;
-        gap: 16px;
-        text-align: center;
+        align-items: flex-start;
+        text-align: left;
       }
 
-      #footer .visitor-info, #footer .connect-icons {
-        flex: unset;
-        min-width: auto;
-        margin: 0;
+      #footer .footer-text {
+        font-size: 0.9rem;
+        text-align: left;
+        margin-left: 0;
+        margin-right: auto;
+        padding-left: 0px;
       }
-    
 
       #footer .connect-icons {
-        justify-content: center;
+        justify-content: flex-start;
+        gap: 24px;
+        flex-wrap: wrap;
+        padding-left: 0px;
       }
 
       #footer .connect-icons img {
         width: 40px;
         height: 40px;
       }
-
-      #footer .footer-text {
-        font-size: 0.90rem;
-      }
     }
+
+
+
+
+
 
 
 
@@ -761,20 +773,23 @@
 
 
 
-<footer id="footer">
-  <div class="footer-content">
-    <div class="visitor-info">
-      <p style="font-size: 1.2rem; font-weight: 500; margin-bottom: 8px;">
-        👀 Visitors so far: <span id="counter">Loading...</span>
-      </p>
-      <img
-        src="images/builtwithaws.png"
-        alt="Built with AWS badge"
-        style="width: 140px; height: auto; margin: 0;"
-      />
-    </div>
-    <div class="connect-icons-container">
-      <div class="connect-icons shared-layout">
+  <footer id="footer" style="max-width: 800px; margin: 0 auto; padding-left: 24px;">
+    <div class="footer-content shared-layout" style="text-align: center;">
+      
+      <!-- Visitor count + AWS badge block -->
+      <div style="margin-bottom: 20px;">
+        <p style="font-size: 1.2rem; font-weight: 500; margin-bottom: 8px;">
+          👀 Visitors so far: <span id="counter">Loading...</span>
+        </p>
+        <img
+          src="images/builtwithaws.png"
+          alt="Built with AWS badge"
+          style="width: 140px; height: auto; margin-top: 4px;"
+        />
+      </div>
+
+      <!-- Contact icons -->
+      <div class="connect-icons" style="margin-top: 24px; justify-content: center; gap: 48px;">
         <a href="mailto:teja.muvva@gmail.com" aria-label="Email" target="_blank">
           <img src="images/letter_icon.png" alt="Email Icon" />
           <span class="icon-label">Email</span>
@@ -788,12 +803,13 @@
           <span class="icon-label">LinkedIn</span>
         </a>
       </div>
+
       <p class="footer-text">© 2025 Teja Muvva. All clouds, no fluff.</p>
     </div>
-  </div>
+  </footer>
 
-  
-</footer>
+
+
 
 </body>
 </html>
