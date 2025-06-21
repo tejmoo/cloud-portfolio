@@ -22,39 +22,35 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
 
- const button = document.querySelector(".view-project-btn");
+ const buttons = document.querySelectorAll(".view-project-btn");
 
-    if (button) {
+    buttons.forEach((button) => {
       let buttonGradient = "";
       let buttonShadow = "";
 
       if (hour < 6) {
-        // 🌌 Twilight
         buttonGradient = "linear-gradient(135deg, #c084fc, #e0b3ff)";
         buttonShadow = "0 4px 12px rgba(192, 132, 252, 0.4)";
       } else if (hour < 12) {
-        // 🌅 Morning
         buttonGradient = "linear-gradient(135deg, #5fc5ff, #9be6ff)";
         buttonShadow = "0 4px 12px rgba(95, 197, 255, 0.4)";
       } else if (hour < 18) {
-        // 🌞 Midday
         buttonGradient = "linear-gradient(135deg,rgb(93, 33, 124),rgb(150, 86, 182))";
         buttonShadow = "0 4px 12px rgba(185, 148, 199, 0.4)";
       } else if (hour < 21) {
-        // 🌇 Sunset
         buttonGradient = "linear-gradient(135deg,rgb(93, 33, 124),rgb(150, 86, 182))";
         buttonShadow = "0 4px 12px rgba(185, 148, 199, 0.4)";
       } else {
-        // 🌙 Night
         buttonGradient = "linear-gradient(135deg, #7f63b8, #c2a4dd)";
         buttonShadow = "0 4px 12px rgba(194, 164, 221, 0.4)";
       }
 
-      button.style.background = buttonGradient;
-      button.style.color = "#ffffff";
-      button.style.border = "none";
-      button.style.boxShadow = buttonShadow;
-    }
+    button.style.background = buttonGradient;
+    button.style.color = "#ffffff";
+    button.style.border = "none";
+    button.style.boxShadow = buttonShadow;
+    });
+
 
 
   document.body.style.setProperty('background', gradient, 'important');

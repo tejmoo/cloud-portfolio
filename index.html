@@ -247,6 +247,13 @@
       justify-content: flex-start;
     }
 
+    .page-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      box-sizing: border-box;
+    }
+
     #footer {
       width: 100vw;
       padding: 30px 20px;
@@ -255,31 +262,43 @@
       color: white;
     }
 
-    #footer .footer-content {
+   #footer .footer-content {
       max-width: 800px;
       margin: 0 auto;
-      padding: 0 24px; /* matches speech bubble horizontal padding */
+      padding: 0 24px;
       display: flex;
-      justify-content: space-between; /* visitor count left, icons right */
+      justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
     }
 
     .visitor-info {
-      flex: 1 1 300px;
       text-align: left;
-      min-width: 200px;
-      margin-right: 20px;
+      font-size: 16px;
+      color: white;
+      grid-column: 1;
+      justify-self: start;
     }
 
-    #footer .connect-icons {
-      max-width: 800px;         /* match speech bubble width */
-      margin: 0 auto;           /* center horizontally */
-      padding: 0 24px;          /* match speech bubble padding */
-      display: flex !important; /* override any conflicting display */
-      justify-content: center !important;
-      gap: 48px !important;
-      box-sizing: border-box;   /* ensure padding doesn't break width */
+    .shared-layout {
+      max-width: 800px;
+      margin: 0 auto;
+      padding-left: 24px;
+      padding-right: 24px;
+      box-sizing: border-box;
+    }
+
+    .connect-icons-container {
+      max-width: 800px;       /* match speech bubble width */
+      padding: 0 24px;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    .connect-icons {
+      display: flex;
+      justify-content: flex-start; /* align left within the speech bubble container */
+      gap: 48px;
     }
 
     #footer .connect-icons img {
@@ -456,14 +475,14 @@
               padding: 12px 10px; 
               display: flex; 
               align-items: center; 
-              gap: 4px; 
+              gap: 8px; 
               color: white; 
               text-decoration: none;
               white-space: nowrap;">
       <img src="images/letter_icon.png" 
           alt="Letter Icon" 
           style="width: 30px; height: 30px; object-fit: contain; display: block;" />
-      Let's Connect! 
+      Contact Me
     </a>
 
   </div>
@@ -573,14 +592,15 @@
 
     <div class="speech-bubble" style="text-align: left; padding-left: 24px; padding-right: 24px;">
     <strong>PackPerfect.ai <em style="font-weight: 400; font-size: 0.95em;">(Coming Soon)</em></strong>
-    <p>A travel-focused web app that generates personalized packing lists using AI and serverless architecture.</p>
+    <p>A travel-focused web app that creates personalized packing lists using AI and serverless architecture.</p>
     <p style="font-style: italic; font-size: 0.95em; margin-bottom: 12px;">
     Perfect for travelers who want to pack smarter, lighter, and never forget the essentials — whether it’s a weekend getaway or a month-long adventure.
     </p>
     <ul style="padding-left: 1.2em; margin: 0 0 12px 0;">
-      <li>Will integrate Amazon Bedrock with AWS Lambda to generate checklist recommendations</li>
-      <li>Designed to track traveler trends and packing preferences across regions</li>
-      <li>Built to showcase cloud-native development and serverless best practices</li>
+      <li>Generates custom lists with Amazon Bedrock + Lambda</li>
+      <li>Tracks trends and travel styles across regions</li>
+      <li>Lightweight, fast, and built to stay low-cost</li>
+      <li>Ready to scale as your travel plans do</li>
     </ul>
 
     <div class="tech-stack-footer">
@@ -596,12 +616,12 @@
 
   <div class="speech-bubble" style="text-align: left; padding-left: 24px; padding-right: 24px;">
     <strong>TheScenicRoute <em style="font-weight: 400; font-size: 0.95em;">(Coming Soon)</em></strong>
-    <p>An AI-powered road trip planner that builds scenic, personalized driving routes — because the best road trips are about the journey, not just the destination.</p>
+    <p>An AI-powered road trip planner that maps out scenic, personalized driving routes — because the best road trips are about the journey, not just the destination.</p>
     <p style="font-style: italic; font-size: 0.95em; margin-bottom: 12px;">
     Great for roadtrippers, digital nomads, and weekend explorers who want memorable drives with character — not just the fastest route.
     </p>
     <ul style="padding-left: 1.2em; margin: 0 0 12px 0;">
-      <li>Suggests curated routes with must-see stops, local food highlights, and storytelling elements</li>
+      <li>Curates routes with must-see stops, local eats, and storytelling along the way</li>
       <li>Integrates Amazon Bedrock with Google Maps to provide real-time directions and tailored recommendations</li>
       <li>Built with a fully serverless, cloud-native architecture</li>
     </ul>
@@ -622,17 +642,14 @@
     <strong>MirrorMe <em style="font-weight: 400; font-size: 0.95em;">(Coming Soon)</em></strong>
     <p>Write faster with responses that reflect your natural communication style.</p>
     <p style="font-style: italic; font-size: 0.95em; margin-bottom: 12px;">
-    Perfect for professionals, support teams, and creatives who want replies that reflect their personal tone — whether they’re writing emails, responding to DMs, or scaling outreach.
+    Perfect for professionals, support teams, and creatives who want their emails and messages to actually sound like them.
     </p>
     <ul style="padding-left: 1.2em; margin: 0 0 12px 0;">
       <li>Uses Amazon Bedrock to generate personalized replies based on sample user input</li>
       <li>Built with serverless architecture using AWS Lambda and API Gateway to keep costs low</li>
       <li>Stores sample tone profiles and reply history in S3</li>
-      <li>Tracks usage and errors with CloudWatch for easy monitoring</li>
+      <li>Monitors usage and errors with CloudWatch</li>
     </ul>
-    <p style="margin-top: 8px; font-style: italic;">
-      Built with: AWS Lambda, Bedrock, API Gateway, S3, CloudWatch
-    </p>
     <div class="tech-stack-footer">
       <span class="tech-tag">Lambda</span>
       <span class="tech-tag">Bedrock</span>
@@ -661,6 +678,32 @@
     <p style="margin-top: 6px;">
       Bachelor of Science in Biology — <em>2013–2017</em>
     </p>
+    <a href="https://linkedin.com/in/tejamuvva" 
+      target="_blank" 
+      class="view-project-btn"
+      style=" 
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 6px;
+      padding: 12px 24px;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;"
+      onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 20px rgba(0, 0, 0, 0.3)'"
+      onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 16px rgba(0, 0, 0, 0.2)'"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
+        <path d="M19 0h-14C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zm-11.75 20h-3v-11h3v11zm-1.5-12.5c-.97 0-1.75-.78-1.75-1.75S4.78 4 5.75 4 7.5 4.78 7.5 5.75 6.72 7.5 5.75 7.5zm14.25 12.5h-3v-5.5c0-1.32-.03-3.01-1.84-3.01-1.84 0-2.12 1.44-2.12 2.93v5.58h-3v-11h2.88v1.5h.04c.4-.75 1.37-1.54 2.82-1.54 3.01 0 3.57 1.98 3.57 4.56V20z"/>
+      </svg>
+      View my LinkedIn
+    </a>
+
+
   </div>
 </div>
 
@@ -716,7 +759,11 @@
   });
 </script>
 
-<div class="visitor-info">
+
+
+<footer id="footer">
+  <div class="footer-content">
+    <div class="visitor-info">
       <p style="font-size: 1.2rem; font-weight: 500; margin-bottom: 8px;">
         👀 Visitors so far: <span id="counter">Loading...</span>
       </p>
@@ -726,26 +773,26 @@
         style="width: 140px; height: auto; margin: 0;"
       />
     </div>
-
-<footer id="footer">
-  <div class="footer-content">
-    <div class="connect-icons">
-      <a href="mailto:teja.muvva@gmail.com" aria-label="Email" target="_blank">
-        <img src="images/letter_icon.png" alt="Email Icon" />
-        <span class="icon-label">Email</span>
-      </a>
-      <a href="https://github.com/tejmoo" aria-label="GitHub" target="_blank">
-        <img src="images/github.png" alt="GitHub Icon" />
-        <span class="icon-label">GitHub</span>
-      </a>
-      <a href="https://linkedin.com/in/tejamuvva" aria-label="LinkedIn" target="_blank">
-        <img src="images/linkedin.png" alt="LinkedIn Icon" />
-        <span class="icon-label">LinkedIn</span>
-      </a>
+    <div class="connect-icons-container">
+      <div class="connect-icons shared-layout">
+        <a href="mailto:teja.muvva@gmail.com" aria-label="Email" target="_blank">
+          <img src="images/letter_icon.png" alt="Email Icon" />
+          <span class="icon-label">Email</span>
+        </a>
+        <a href="https://github.com/tejmoo" aria-label="GitHub" target="_blank">
+          <img src="images/github.png" alt="GitHub Icon" />
+          <span class="icon-label">GitHub</span>
+        </a>
+        <a href="https://linkedin.com/in/tejamuvva" aria-label="LinkedIn" target="_blank">
+          <img src="images/linkedin.png" alt="LinkedIn Icon" />
+          <span class="icon-label">LinkedIn</span>
+        </a>
+      </div>
+      <p class="footer-text">© 2025 Teja Muvva. All clouds, no fluff.</p>
     </div>
   </div>
 
-  <p class="footer-text">© 2025 Teja Muvva. All clouds, no fluff.</p>
+  
 </footer>
 
 </body>
