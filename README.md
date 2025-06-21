@@ -76,11 +76,11 @@ Check out the [CloudFormation Template for GitHub Actions OIDC Deploy](.github/c
 
 ### 🌤️ Homepage
 
-<img src="README_images/homepage.png" width="600" />
+<img src="README_images/web_screenshot.png" width="600" />
 
 ### 💡 Mobile View
 
-<img src="README_images/mobile.png" width="200" />
+<img src="README_images/mobile_screenshot.png" width="200" />
 
 ---
 
