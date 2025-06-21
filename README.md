@@ -4,21 +4,21 @@ A fully static, mobile-friendly portfolio website hosted on **AWS S3**, fronted 
 
 ---
 
-## 🚀 Features
+## Features
 
-- 🌐 Fully responsive and accessible static website built with HTML, CSS, and JavaScript
-- ☁️ Features animated, randomized cloud elements and dynamic, time-based background gradients
-- 📍 Displays geo-aware greetings using IP geolocation APIs
-- 🔢 Tracks real-time visitor count using AWS Lambda, API Gateway, and CloudWatch
-- 💾 Hosted on Amazon S3 with HTTPS enabled via CloudFront and ACM
-- 🔄 Auto-deploys on every push to the main branch using GitHub Actions
-- ❄️ Automatically triggers CloudFront cache invalidation only when website files change
-- 🔐 Uses GitHub OIDC for secure, credentials-free authentication during deployment
-- 🍔 Mobile-friendly layout with a responsive sidebar menu
+- Fully responsive and accessible static website built with HTML, CSS, and JavaScript
+- Features animated, randomized cloud elements and dynamic, time-based background gradients
+- Displays geo-aware greetings using IP geolocation APIs
+- Tracks real-time visitor count using AWS Lambda, API Gateway, and CloudWatch
+- Hosted on Amazon S3 with HTTPS enabled via CloudFront and ACM
+- Auto-deploys on every push to the main branch using GitHub Actions
+- Automatically triggers CloudFront cache invalidation only when website files change
+- Uses GitHub OIDC for secure, credentials-free authentication during deployment
+- Mobile-friendly layout with a responsive sidebar menu
 
 ---
 
-## 🛠 Stack
+## Stack
 
 - **Frontend:** HTML, CSS, JavaScript
 - **CI/CD:** GitHub Actions
@@ -26,13 +26,13 @@ A fully static, mobile-friendly portfolio website hosted on **AWS S3**, fronted 
 
 ---
 
-### 🧱 Architecture Diagram
+### Architecture Diagram
 
 ![Architecture](README_images/architecture.png)
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 .
@@ -49,7 +49,7 @@ A fully static, mobile-friendly portfolio website hosted on **AWS S3**, fronted 
 
 ---
 
-## 💡 How It Works
+## How It Works
 
 1. Push code to `main`
 2. GitHub Actions:
@@ -60,30 +60,30 @@ A fully static, mobile-friendly portfolio website hosted on **AWS S3**, fronted 
 
 ---
 
-## 🌐 Live Site
+## Live Site
 
-> 🔗 [tejain.space](#)  
+> [tejain.space](#)  
 
 ---
 
-## 🧠 Want to Build Something Similar?
+## Want to Build Something Similar?
 
 Check out the [CloudFormation Template for GitHub Actions OIDC Deploy](.github/cloudformation/github-oidc-deploy.yaml) and [GitHub Actions workflow](.github/workflows/deploy.yml) to learn how this serverless CI/CD pipeline works.
 
 ---
 
-## 📸 Screenshots
+## creenshots
 
-### 🌤️ Homepage
+### Homepage
 
 <img src="README_images/web_screenshot.png" width="600" />
 
-### 💡 Mobile View
+### Mobile View
 
 <img src="README_images/mobile_screenshot.png" width="200" />
 
 ---
 
-## ✨ Author
+## Author
 
 Made with ☁️ and ☕ by [@tejmoo](https://github.com/tejmoo)
